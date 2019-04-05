@@ -1,27 +1,27 @@
-name:                fused-effects-lens
+name:                freer-simple-lens
 version:             0.1.0.0
-synopsis:            Monadic lens combinators for fused-effects.
+synopsis:            Monadic lens combinators for freer-simple.
 description:         Provides combinators for the lens-based manipulation of state and context types provided by the fused-effects library, similar to those provided for mtl-based monad transformers.
-homepage:            https://github.com/fused-effects/fused-effects-lens#readme
+homepage:            https://github.com/farrellm/freer-simple-lens#readme
 license:             BSD3
 license-file:        LICENSE
-author:              Patrick Thomson
-maintainer:          patrickt@github.com
-copyright:           2018 Patrick Thomson
-category:            Web
+author:              Patrick Thomson, Matthew Farrell
+maintainer:          Matthew Farrell <farrellm@alum.mit.edu>
+copyright:           2018 Patrick Thomson; 2019 Matthew Farrell
+category:            Data, Lenses
 build-type:          Simple
 cabal-version:       >=1.10
 extra-source-files:
   README.md
-  CHANGES.md                 
+  CHANGES.md
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Control.Effect.Lens
+  exposed-modules:     Control.Monad.Freer.Lens
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5
                      , lens >= 4   && < 5
-                     , fused-effects >= 0.1.2 && < 1
+                     , freer-simple >= 1.0.0.0 && < 2
   ghc-options:         -Wall
 
 test-suite test
@@ -30,7 +30,7 @@ test-suite test
   hs-source-dirs:      test
   default-language:    Haskell2010
   build-depends:       base >=4.7 && < 5.0
-                     , fused-effects-lens
+                     , freer-simple-lens
                      , lens >=4   && < 5
-                     , fused-effects >= 0.1.2 && < 1
+                     , freer-simple >= 1.0.0.0 && < 2
                      , hspec >= 2.4.1

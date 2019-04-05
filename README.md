@@ -1,12 +1,12 @@
-# fused-effects-lens
+# freer-simple-lens
 
-This package provides an interface to the [`lens`](https://github.com/ekmett/lens) library that is compatible with [`fused-effects`](https://github.com/robrix/fused-effects). The standard formulation of `lens` combinators for operating in `MonadState` contexts—`use`, `.=`, et al—rely on `mtl` for `MonadState` and `MonadReader`, which is not applicable to `Reader` and `State` effects.
+This package provides an interface to the [`lens`](https://github.com/ekmett/lens) library that is compatible with [`freer-simple`](https://github.com/lexi-lambda/freer-simple). The standard formulation of `lens` combinators for operating in `MonadState` contexts—`use`, `.=`, et al—rely on `mtl` for `MonadState` and `MonadReader`, which is not applicable to `Reader` and `State` effects.
 
 This package is meant to be used alongside `lens`, like so:
 
 ``` haskell
 import Control.Lens hiding (view, use, assign)
-import Control.Effect.Lens (view, use, assign)
+import Control.Monad.Freer.Lens (view, use, assign)
 ```
 
 ## Example
@@ -18,7 +18,7 @@ data Context = Context
   { _amount :: Int
   , _disabled :: Bool
   } deriving (Eq, Show)
-  
+
 makeLenses ''Context
 ```
 
@@ -37,4 +37,8 @@ You can find a more complete example, including one that works with multiple `St
 
 ## License
 
-BSD3, like `fused-effects`.
+BSD3, like `freer-simple`.
+
+## Acknowledgements
+
+The `freer-simple-lens` package began as a fork of [fused-effects-lens](https://github.com/fused-effects/fused-effects-lens) by Patrick Thomson.
